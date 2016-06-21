@@ -1,0 +1,17 @@
+{
+  "name": "rest-rabbit",
+  "version": "1.0.0",
+  "description": "rest api endpoint for rabbitmq",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tom Dietrich",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.4.2",
+    "body-parser": "^1.15.2",
+    "cfenv": "^1.0.3",
+    "express": "^4.14.0"
+  }
+}
