@@ -1,5 +1,5 @@
 ---
-domain: uat.cfd.int.8451.com
+domain: uat.cfp.int.8451.com
 applications:
  - name: rest-rabbit
    host: rest-rabbit

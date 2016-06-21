@@ -1,5 +1,5 @@
 ---
-domain: prod.cfd.int.8451.com
+domain: prod.cfp.int.8451.com
 applications:
  - name: rest-rabbit
    host: rest-rabbit
