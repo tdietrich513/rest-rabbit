@@ -1,0 +1,11 @@
+---
+domain: ci.cfd.int.8451.com
+applications:
+ - name: rest-rabbit
+   host: rest-rabbit
+   memory: 256M
+   buildpack: https://github.com/cloudfoundry/nodejs-buildpack
+   disk_quota: 256M
+   instances: 1
+services:
+ - RMQServiceBus
