@@ -4,18 +4,13 @@ var app = express();
 
 var appEnv = require('cfenv').getAppEnv({
   vcap: {
-    application: {
-
-    },
     services: {
-      'p-rabbitmq': [
-        {
+      'p-rabbitmq': [{
+          name: 'RMQServiceBus'
           credentials: {
-            name: 'RMQServiceBus',
             uri: 'amqp://172.17.0.2:5672'
           }
-        }
-      ]
+      }]
     }
   }
 });
@@ -37,12 +32,15 @@ app.post('/exchange/:exc/route/:rk', textParser, (req, res) => {
   api.connect(rmquri, (err, conn) => {
     conn.createChannel((err, ch) => {
       if (err != null) bail(err, res);
+
       ch.assertExchange(exchange);
       ch.publish(exchange, routeKey, new Buffer(req.body));
       res.sendStatus(200);
+
       console.log(`published message to ${exchange} using routing key ${routeKey}`);
       ch.close();
-    });    
+      conn.close();
+    });
   });
 });
 
