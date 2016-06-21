@@ -6,7 +6,7 @@ var appEnv = require('cfenv').getAppEnv({
   vcap: {
     services: {
       'p-rabbitmq': [{
-          name: 'RMQServiceBus'
+          name: 'RMQServiceBus',
           credentials: {
             uri: 'amqp://172.17.0.2:5672'
           }
