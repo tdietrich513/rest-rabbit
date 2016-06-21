@@ -4,7 +4,11 @@
   "description": "rest api endpoint for rabbitmq",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "6.2.1"
   },
   "author": "Tom Dietrich",
   "license": "ISC",
