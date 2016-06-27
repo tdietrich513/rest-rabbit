@@ -4,7 +4,7 @@
       "p-rabbitmq": [{
           "name": "RMQServiceBus",
           "credentials": {
-            "uri": "amqp://458a336d-00d8-4cef-b511-d62ea3c33b5c:ssm6kp82uq2epri1klpbjcanub@10.152.105.73/25ef9f33-3669-4952-a31c-859b3f921d8c"
+            "uri": "amqp://172.17.0.2:5672"
           }
       }]
     }
