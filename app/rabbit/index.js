@@ -1,15 +1,14 @@
-var api = require('amqplib');
-var appEnv = require('cfenv').getAppEnv(require('./fallback'));
-
-var uri = appEnv.getService('RMQServiceBus').credentials.uri;
+var api = require('amqplib')
+  , appEnv = require('cfenv').getAppEnv(require('./fallback'))
+  , uri = appEnv.getService('RMQServiceBus').credentials.uri
 
 var getChannel = api.connect(uri)
   .then((conn) => {
     return conn.createConfirmChannel()
   })
   .then((ch) => {
-      return ch;
-    })
+    return ch;
+  })
   .catch(console.warn);
 
 module.exports.publishMessage = (exchange, route, body, callback) => {

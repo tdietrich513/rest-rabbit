@@ -1,6 +1,6 @@
 var express = require('express')
   , app = express()
-  , port = require('cfenv').getAppEnv().port;
+  , port = require('cfenv').getAppEnv().port
 
 app.use(require('./controllers'));
 

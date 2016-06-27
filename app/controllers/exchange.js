@@ -17,8 +17,7 @@ router.post('/:exc/route/:rk', textParser, (req, res) => {
         responses.ok(res, message);
         console.log(message);
       }
-    });
-
-  });
+    });    
+});
 
 module.exports = router
