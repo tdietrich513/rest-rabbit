@@ -2,13 +2,13 @@ var express = require('express')
   , router = express.Router()
   , textParser = require('body-parser').text()
   , responses = require ('./responses')
-  , rabbit = require('../rabbit')
+  , publishMessage = require('../rabbit/publishMessage')
 
 router.post('/:exc/route/:rk', textParser, (req, res) => {
     let exchange = req.params.exc;
     let routeKey = req.params.rk;
 
-    rabbit.publishMessage(exchange, routeKey, new Buffer(req.body), (err) => {
+    publishMessage(exchange, routeKey, new Buffer(req.body), (err) => {
       if (err) {
         responses.error(err, res)
       } else {
@@ -17,7 +17,7 @@ router.post('/:exc/route/:rk', textParser, (req, res) => {
         responses.ok(res, message);
         console.log(message);
       }
-    });    
+    });
 });
 
 module.exports = router
