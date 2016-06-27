@@ -5,19 +5,16 @@ var express = require('express')
   , publishMessage = require('../rabbit/publishMessage')
 
 router.post('/:exc/route/:rk', textParser, (req, res) => {
-    let exchange = req.params.exc;
-    let routeKey = req.params.rk;
+  let exchange = req.params.exc;
+  let routeKey = req.params.rk;
 
-    publishMessage(exchange, routeKey, new Buffer(req.body), (err) => {
-      if (err) {
-        responses.error(err, res)
-      } else {
-        let message = `published message to ${exchange} using routing key ${routeKey}`;
+  publishMessage(exchange, routeKey, new Buffer(req.body), (err) => {
+    if (err) return responses.error(err, res)
 
-        responses.ok(res, message);
-        console.log(message);
-      }
-    });
+    let message = `published message to ${exchange} using routing key ${routeKey}`;
+    console.log(message);
+    return responses.ok(res, message);
+  });
 });
 
 module.exports = router

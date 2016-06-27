@@ -3,9 +3,7 @@ exports.error = (err, res) => {
 }
 
 exports.ok = (res, message) => {
-  if (message) {
-    res.status(200).send(message);
-  } else  {
-    res.sendStatus(200);
-  }
+  if (message) return res.status(200).send(message);
+
+  return res.sendStatus(200);
 }

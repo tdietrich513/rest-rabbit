@@ -5,12 +5,9 @@ var publishMessage = (exchange, route, body, callback) => {
     channel.publish(exchange, route, body);
     channel.waitForConfirms().then((confirms) => {
       confirms.forEach(err => {
-        if (err) {
-          callback(err);
-          return;
-        }
+        if (err) return callback(err);
       });
-
+      
       callback();
     });
   });
