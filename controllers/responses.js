@@ -1,4 +1,4 @@
-exports.bail = (err, res) => {
+exports.error = (err, res) => {
   res.status(500).send(err);
 }
 
